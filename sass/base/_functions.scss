@@ -1,0 +1,3 @@
+@function dim($tracks, $total) {
+    @return calc(100% / #{$total} * #{$tracks});
+}

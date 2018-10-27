@@ -1,0 +1,98 @@
+.row,
+.col {
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: -$gutterWidth;
+    margin-right: -$gutterWidth;
+
+    // this creates all the columns for each breakpoint: medium (md, 768px) and large (lg, 992px)
+    @media only screen and (min-width: 768px) {
+        @for $i from 1 to 14 {
+            @for $j from 1 to 13 {
+                @if $i == 1 or 
+                   ($i < $j and 
+                    (($j % 2 != 0 or $i % 2 != 0) and 
+                     ($j % 3 != 0 or $i % 3 != 0) and 
+                     ($j % $i != 0))) {
+                    .track-md-#{$i}-#{$j} {
+                        @include width(#{$i}, #{$j});
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 992px) {
+        @for $i from 1 to 14 {
+            @for $j from 1 to 13 {
+                @if $i == 1 or 
+                   ($i < $j and 
+                    (($j % 2 != 0 or $i % 2 != 0) and 
+                     ($j % 3 != 0 or $i % 3 != 0) and 
+                     ($j % $i != 0))) {
+                    .track-lg-#{$i}-#{$j} {
+                        @include width(#{$i}, #{$j});
+                    }
+                }
+            }
+        }
+    }
+
+    [class^="track-"] {
+        width: 100%;
+        padding-left: $gutterWidth;
+        padding-right: $gutterWidth;
+    }
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 90vh;
+    margin-top: -$gutterWidth;
+    margin-bottom: -$gutterWidth;
+
+    @media only screen and (min-width: 768px) {
+        @for $i from 1 to 14 {
+            @for $j from 1 to 13 {
+                @if $i == 1 or 
+                   ($i < $j and 
+                    (($j % 2 != 0 or $i % 2 != 0) and 
+                     ($j % 3 != 0 or $i % 3 != 0) and 
+                     ($j % $i != 0))) {
+                    .track-md-#{$i}-#{$j} {
+                        @include height(#{$i}, #{$j});
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 992px) {
+        @for $i from 1 to 14 {
+            @for $j from 1 to 13 {
+                @if $i == 1 or 
+                   ($i < $j and 
+                    (($j % 2 != 0 or $i % 2 != 0) and 
+                     ($j % 3 != 0 or $i % 3 != 0) and 
+                     ($j % $i != 0))) {
+                    .track-lg-#{$i}-#{$j} {
+                        @include height(#{$i}, #{$j});
+                    }
+                }
+            }
+        }
+    }
+
+    [class^="track-"] {
+        height: 100%;
+        padding-top: $gutterWidth;
+        padding-bottom: $gutterWidth;
+    }
+}

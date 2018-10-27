@@ -1,0 +1,24 @@
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $color-primary;
+}
+
+.nav-item {
+    @include cushion;
+
+    .nav-link {
+        color: $color-primary-dark;
+        transition: .2s;
+
+        &:not(:last-child) {
+            border-right: $gray;
+        }
+
+        &:hover {
+            color: $white;
+            text-shadow: 0 0 5px $gray-dark;
+        }
+    }
+}
