@@ -1,4 +1,4 @@
-# CSS Library
+# Flik - CSS Library
 
 My first CSS Library. Currently includes a grid system that works not only with rows but also columns. The column was put in place in the hopes of supporting a horizontally scrolling website, rather than how every website currently behaves scrolling vertically. 
 
