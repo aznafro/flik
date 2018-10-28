@@ -1,14 +1,23 @@
-.row,
-.col {
-    margin-bottom: 20px;
+.container {
+    background-color: $white;
+    padding-left: $gutterWidth;
+    padding-right: $gutterWidth;
 }
 
 .row {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
     margin-left: -$gutterWidth;
     margin-right: -$gutterWidth;
+
+    [class^="track-"] {
+        width: 100%;
+        margin-bottom: calc(#{$gutterWidth} * 2);
+        padding-left: $gutterWidth;
+        padding-right: $gutterWidth;
+    }
 
     // this creates all the columns for each breakpoint: medium (md, 768px) and large (lg, 992px)
     @media only screen and (min-width: 768px) {
@@ -41,58 +50,5 @@
                 }
             }
         }
-    }
-
-    [class^="track-"] {
-        width: 100%;
-        padding-left: $gutterWidth;
-        padding-right: $gutterWidth;
-    }
-}
-
-.col {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 100%;
-    margin-top: -$gutterWidth;
-    margin-bottom: -$gutterWidth;
-
-    @media only screen and (min-width: 768px) {
-        @for $i from 1 to 14 {
-            @for $j from 1 to 13 {
-                @if $i == 1 or 
-                   ($i < $j and 
-                    (($j % 2 != 0 or $i % 2 != 0) and 
-                     ($j % 3 != 0 or $i % 3 != 0) and 
-                     ($j % $i != 0))) {
-                    .track-md-#{$i}-#{$j} {
-                        @include height(#{$i}, #{$j});
-                    }
-                }
-            }
-        }
-    }
-
-    @media only screen and (min-width: 992px) {
-        @for $i from 1 to 14 {
-            @for $j from 1 to 13 {
-                @if $i == 1 or 
-                   ($i < $j and 
-                    (($j % 2 != 0 or $i % 2 != 0) and 
-                     ($j % 3 != 0 or $i % 3 != 0) and 
-                     ($j % $i != 0))) {
-                    .track-lg-#{$i}-#{$j} {
-                        @include height(#{$i}, #{$j});
-                    }
-                }
-            }
-        }
-    }
-
-    [class^="track-"] {
-        height: 100%;
-        padding-top: $gutterWidth;
-        padding-bottom: $gutterWidth;
     }
 }

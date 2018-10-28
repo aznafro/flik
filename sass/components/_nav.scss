@@ -1,22 +1,25 @@
 .nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    background-color: $color-primary;
 }
 
 .nav-item {
     @include cushion;
+    transition: .2s;
 
     .nav-link {
-        color: $color-primary-dark;
+        color: $blue;
         transition: .2s;
 
         &:not(:last-child) {
-            border-right: $gray;
+            border-right: $gray-dark;
         }
+    }
 
-        &:hover {
+    &:hover {
+        background-color: $blue;
+
+        .nav-link {
             color: $white;
             text-shadow: 0 0 5px $gray-dark;
         }

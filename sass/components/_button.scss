@@ -1,6 +1,6 @@
 .btn {
     color: $white;
-    background-color: $color-secondary;
+    background-color: $blue;
     border-radius: $border-radius;
     @include cushion;
     transition: .2s;
@@ -8,5 +8,6 @@
     &:hover {
         transform: translateY(-5px);
         box-shadow: 0 3px 5px $gray-dark;
+        cursor: pointer;
     }
 }

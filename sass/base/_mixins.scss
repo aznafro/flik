@@ -1,11 +1,7 @@
 @mixin cushion {
-    padding: 8px 15px;
+    padding: 10px 18px;
 }
 
 @mixin width($tracks, $total) {
     width: dim($tracks, $total);
-}
-
-@mixin height($tracks, $total) {
-    height: dim($tracks, $total);
 }
