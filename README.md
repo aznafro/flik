@@ -1,4 +1,4 @@
-# Flik - CSS Library
+# Flik - Grid based CSS Framework
 
 My first CSS Library. Currently includes a grid system that works with rows. Also includes a basic reset, some typography settings, bottom margins on text, links, buttons and a nav bar. 
 
