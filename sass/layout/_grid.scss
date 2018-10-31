@@ -1,5 +1,4 @@
 .container {
-    background-color: $white;
     width: 95%;
     margin: 0 auto;
 }
@@ -19,6 +18,20 @@
         padding-right: $gutterWidth;
     }
 
+    @for $i from 1 to 14 {
+        @for $j from 1 to 13 {
+            @if $i == 1 or 
+               ($i < $j and 
+                (($j % 2 != 0 or $i % 2 != 0) and 
+                 ($j % 3 != 0 or $i % 3 != 0) and 
+                 ($j % $i != 0))) {
+                & > .track-#{$i}-#{$j} {
+                    @include width(#{$i}, #{$j});
+                }
+            }
+        }
+    }
+
     // this creates all the columns for each breakpoint: medium (md, 768px) and large (lg, 992px)
     @media only screen and (min-width: 768px) {
         @for $i from 1 to 14 {
@@ -28,7 +41,7 @@
                     (($j % 2 != 0 or $i % 2 != 0) and 
                      ($j % 3 != 0 or $i % 3 != 0) and 
                      ($j % $i != 0))) {
-                    .track-md-#{$i}-#{$j} {
+                    & > .track-md-#{$i}-#{$j} {
                         @include width(#{$i}, #{$j});
                     }
                 }
@@ -44,7 +57,23 @@
                     (($j % 2 != 0 or $i % 2 != 0) and 
                      ($j % 3 != 0 or $i % 3 != 0) and 
                      ($j % $i != 0))) {
-                    .track-lg-#{$i}-#{$j} {
+                    & > .track-lg-#{$i}-#{$j} {
+                        @include width(#{$i}, #{$j});
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1120px) {
+        @for $i from 1 to 14 {
+            @for $j from 1 to 13 {
+                @if $i == 1 or 
+                   ($i < $j and 
+                    (($j % 2 != 0 or $i % 2 != 0) and 
+                     ($j % 3 != 0 or $i % 3 != 0) and 
+                     ($j % $i != 0))) {
+                    & > .track-xl-#{$i}-#{$j} {
                         @include width(#{$i}, #{$j});
                     }
                 }
