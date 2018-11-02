@@ -32,7 +32,24 @@
         }
     }
 
-    // this creates all the columns for each breakpoint: medium (md, 768px) and large (lg, 992px)
+    // this creates all the columns for each breakpoint: small (sm, 480px), medium (md, 768px),
+    // large (lg, 992px), and extra large (xl, 1120px)
+    @media only screen and (min-width: 480px) {
+        @for $i from 1 to 14 {
+            @for $j from 1 to 13 {
+                @if $i == 1 or 
+                   ($i < $j and 
+                    (($j % 2 != 0 or $i % 2 != 0) and 
+                     ($j % 3 != 0 or $i % 3 != 0) and 
+                     ($j % $i != 0))) {
+                    & > .track-sm-#{$i}-#{$j} {
+                        @include width(#{$i}, #{$j});
+                    }
+                }
+            }
+        }
+    }
+
     @media only screen and (min-width: 768px) {
         @for $i from 1 to 14 {
             @for $j from 1 to 13 {
