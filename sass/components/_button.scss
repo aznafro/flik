@@ -2,6 +2,7 @@
     color: $white;
     background-color: $blue;
     border-radius: $border-radius;
+    padding: 10px 16px;
     border: none;
     @include cushion;
     transition: .2s;
